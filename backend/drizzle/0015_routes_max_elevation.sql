@@ -1,0 +1,1 @@
+ALTER TABLE routes ADD COLUMN max_elevation_m INTEGER;

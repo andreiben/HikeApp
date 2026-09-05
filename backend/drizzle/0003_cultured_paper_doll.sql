@@ -1,0 +1,1 @@
+ALTER TABLE "hikes" ADD COLUMN "backpack_weight_kg" double precision;

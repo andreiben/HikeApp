@@ -1,0 +1,47 @@
+{
+  "name": "backend",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bcryptjs": "^3.0.0",
+    "@types/bun": "latest",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^25.5.2",
+    "drizzle-kit": "^0.31.10"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^17.4.0",
+    "drizzle-orm": "^0.45.2",
+    "hono": "^4.12.10",
+    "jsonwebtoken": "^9.0.3",
+    "postgres": "^3.4.8",
+    "zod": "^4.3.6"
+  },
+  "scripts": {
+    "dev": "bun run --watch index.ts",
+    "db:generate": "node ./scripts/dbGenerate.mjs",
+    "db:push": "node ./scripts/dbPush.mjs",
+    "import:osm:europe": "bun run scripts/import-osm-europe.ts",
+    "seed:tags": "bun run scripts/seed-route-tags.ts",
+    "seed:routes": "bun run src/scripts/seedRoutes.ts",
+    "seed:osm": "bun run src/scripts/seedFromOSM.ts",
+    "seed:history": "bun run src/scripts/seedUserHistory.ts",
+    "seed:year": "bun run src/scripts/seedYearHistory.ts",
+    "seed:recent": "bun run scripts/seed-recent-history.ts",
+    "seed:personas": "bun run src/scripts/seedPersonas.ts",
+    "delete:non-romanian": "bun run src/scripts/deleteNonRomanianRoutes.ts",
+    "cleanup:routes": "bun run scripts/cleanup-routes.ts",
+    "backfill:geometry": "bun run scripts/backfill-simplified-geometry.ts",
+    "backfill:elevation-profile": "bun run scripts/backfill-elevation-profile.ts",
+    "backfill:duration": "bun run scripts/backfill-duration.ts",
+    "evaluate:risk": "bun run scripts/evaluate-risk-engine.ts",
+    "expert:scenarios": "bun run scripts/expert-scenarios.ts",
+    "expert-scenarios": "bun run scripts/expert-scenarios.ts",
+    "test": "bun test src/tests"
+  }
+}

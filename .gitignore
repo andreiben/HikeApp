@@ -1,0 +1,71 @@
+# ---- Dependencies ----
+node_modules/
+.pnp
+.pnp.js
+
+# ---- Environment / secrets ----
+.env
+.env.*
+!.env.example
+
+# ---- Build output ----
+dist/
+build/
+out/
+*.tsbuildinfo
+
+# ---- Expo / React Native ----
+.expo/
+.expo-shared/
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+
+# ---- Test / coverage ----
+coverage/
+*.lcov
+.nyc_output/
+
+# ---- Generated analysis artifacts ----
+risk-engine-evaluation.md
+risk-engine-evaluation.json
+risk-engine-evaluation.v1.md
+risk-engine-evaluation.v1.json
+risk-engine-evaluation-diff.md
+expert-scenarios-result.md
+expert-scenarios-result.json
+
+# ---- Generated credential sheets ----
+persona-accounts.csv
+
+# ---- Logs / temp ----
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.tmp
+*.temp
+*.cache
+.cache/
+
+# ---- OS ----
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ---- Editors / IDE ----
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~

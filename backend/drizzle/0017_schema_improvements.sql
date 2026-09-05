@@ -1,0 +1,16 @@
+ALTER TABLE routes ADD COLUMN surface_type TEXT NOT NULL DEFAULT 'dirt';
+UPDATE routes SET surface_type = 'rocky' WHERE max_elevation_m >= 1900 OR (region IN ('Fagaras', 'Bucegi/Leaota', 'Piatra Craiului') AND elevation_gain_m > 800) OR (region = 'Retezat/Mehedinti' AND elevation_gain_m > 600);
+UPDATE routes SET surface_type = 'mixed' WHERE surface_type = 'dirt' AND (elevation_gain_m > 400 OR difficulty = 'hard');
+ALTER TABLE hikes ADD COLUMN weather_snapshot_start JSONB;
+ALTER TABLE hikes ADD COLUMN risk_assessment_id UUID REFERENCES risk_assessments(id) ON DELETE SET NULL;
+ALTER TABLE hikes ADD COLUMN off_trail_seconds INTEGER NOT NULL DEFAULT 0;
+ALTER TABLE hikes ADD COLUMN user_difficulty_rating INTEGER;
+ALTER TABLE trail_conditions ADD COLUMN photo_url TEXT;
+ALTER TABLE trail_conditions ADD COLUMN severity TEXT NOT NULL DEFAULT 'moderate';
+ALTER TABLE trail_conditions ALTER COLUMN user_id TYPE UUID USING user_id::uuid;
+ALTER TABLE trail_conditions ALTER COLUMN user_id DROP NOT NULL;
+ALTER TABLE trail_conditions ADD CONSTRAINT trail_conditions_user_id_fkey FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL;
+ALTER TABLE trail_conditions ADD CONSTRAINT trail_conditions_route_id_fkey FOREIGN KEY (route_id) REFERENCES routes(id) ON DELETE CASCADE;
+ALTER TABLE user_profiles ADD COLUMN units TEXT NOT NULL DEFAULT 'metric';
+ALTER TABLE user_profiles ADD COLUMN risk_alerts_enabled BOOLEAN NOT NULL DEFAULT TRUE;
+ALTER TABLE user_profiles ADD COLUMN achievement_toasts_enabled BOOLEAN NOT NULL DEFAULT TRUE;

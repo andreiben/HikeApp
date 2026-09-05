@@ -1,0 +1,2 @@
+ALTER TABLE trail_conditions ADD COLUMN is_trail_verified BOOLEAN NOT NULL DEFAULT FALSE;
+ALTER TABLE trail_conditions ADD COLUMN is_suppressed BOOLEAN NOT NULL DEFAULT FALSE;
